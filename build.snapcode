@@ -1,0 +1,5 @@
+{
+	"Class": "BuildFile",
+	"MainClassName": "snaptris.TetrisPane",
+	"IncludeSnapKitRuntime": true
+}

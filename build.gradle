@@ -1,0 +1,31 @@
+import java.text.SimpleDateFormat
+
+plugins {
+    id 'application'
+}
+
+group 'com.reportmill'
+version new SimpleDateFormat("yyyy.MM").format(new Date())
+
+sourceSets.main.java.srcDirs = ['src']
+sourceSets.main.resources.srcDirs = ['src']
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // If Local SnapKit project, use that, otherwise use latest GitHub repo
+    if (findProject(':SnapKit') != null) { println 'Using local SnapKit project'
+        implementation project(':SnapKit') }
+    else { println 'Using latest SnapKit GitHub repo'
+        implementation 'com.github.reportmill:SnapKit:master-SNAPSHOT'  }
+}
+
+mainClassName = 'snaptris.TetrisPane'
