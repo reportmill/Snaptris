@@ -1,4 +1,4 @@
-package snapdemos.tetris;
+package snaptris;
 import snap.gfx.Color;
 import snap.util.SnapUtils;
 import snap.view.*;

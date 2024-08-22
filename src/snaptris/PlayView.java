@@ -1,4 +1,4 @@
-package snapdemos.tetris;
+package snaptris;
 import java.util.*;
 import snap.geom.*;
 import snap.gfx.*;
