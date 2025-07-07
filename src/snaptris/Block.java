@@ -22,8 +22,6 @@ public class Block extends View {
     {
         super();
         setEffect(BLOCK_EFFECT);
-        setEffect(BLOCK_EFFECT);
-        setEffect(BLOCK_EFFECT);
 
         // Set pattern
         _pattern = aPattern;
