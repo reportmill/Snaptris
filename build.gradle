@@ -28,4 +28,6 @@ dependencies {
         implementation 'com.github.reportmill:SnapKit:master-SNAPSHOT'  }
 }
 
-mainClassName = 'snaptris.TetrisPane'
+application {
+    mainClass = 'snaptris.TetrisPane'
+}
