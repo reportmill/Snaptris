@@ -4,8 +4,8 @@ plugins {
     id 'application'
 }
 
-group 'com.reportmill'
-version new SimpleDateFormat("yyyy.MM").format(new Date())
+group = 'com.reportmill'
+version = new SimpleDateFormat("yyyy.MM").format(new Date())
 
 sourceSets.main.java.srcDirs = ['src']
 sourceSets.main.resources.srcDirs = ['src']
@@ -15,17 +15,10 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
-repositories {
-    mavenCentral()
-}
+repositories { mavenCentral() }
 
 dependencies {
-
-    // If Local SnapKit project, use that, otherwise use latest GitHub repo
-    if (findProject(':SnapKit') != null) { println 'Using local SnapKit project'
-        implementation project(':SnapKit') }
-    else { println 'Using latest SnapKit GitHub repo'
-        implementation 'com.github.reportmill:SnapKit:master-SNAPSHOT'  }
+    implementation project(':SnapKit')
 }
 
 application {
