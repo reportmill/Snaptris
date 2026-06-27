@@ -46,7 +46,7 @@ public class PlayView extends ParentView {
         super();
         setFill(Color.WHITE);
         setBorder(Color.BLACK, 2);
-        enableEvents(KeyPress);
+        addEventHandler(this::handleMousePressEvent, KeyPress);
         setFocusable(true);
 
         // Set size
@@ -205,7 +205,7 @@ public class PlayView extends ParentView {
      */
     void addRows()
     {
-        while (_stackRows.size() == 0 || _block.getY() + TILE_SIZE / 2 < getTopRow().getY()) {
+        while (_stackRows.isEmpty() || _block.getY() + TILE_SIZE / 2 < getTopRow().getY()) {
             addRow();
             if (_gameOver)
                 return;
@@ -284,10 +284,7 @@ public class PlayView extends ParentView {
     /**
      * Returns the top row.
      */
-    StackRow getTopRow()
-    {
-        return _stackRows.size() > 0 ? _stackRows.get(_stackRows.size() - 1) : null;
-    }
+    StackRow getTopRow()  { return !_stackRows.isEmpty() ? _stackRows.get(_stackRows.size() - 1) : null; }
 
     /**
      * Returns the row for y value.
@@ -333,7 +330,7 @@ public class PlayView extends ParentView {
     /**
      * Handles event.
      */
-    protected void processEvent(ViewEvent anEvent)
+    private void handleMousePressEvent(ViewEvent anEvent)
     {
         // Handle LeftArrow, RightArrow, DownArrow, Space
         if (anEvent.isLeftArrow())
